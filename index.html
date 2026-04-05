@@ -1,140 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nature of Risk | A Digital Journal</title>
+    <title>The Nature of Risk | Digital Journal</title>
     <style>
         :root {
             --navy: #001f3f;
             --gold: #d4af37;
             --light-gold: #f1e5ac;
             --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.95);
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            /* Gradient background from Navy to Gold */
+            font-family: 'Optima', 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #222;
             background: linear-gradient(135deg, var(--navy) 0%, #003366 50%, var(--gold) 100%);
             background-attachment: fixed;
             min-height: 100vh;
+            transition: direction 0.3s ease;
+        }
+
+        /* Language Switcher */
+        .lang-nav {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-nav button {
+            background: transparent;
+            border: 1px solid var(--light-gold);
+            color: var(--white);
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .lang-nav button:hover {
+            background: var(--gold);
+            color: var(--navy);
         }
 
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 60px 20px;
             color: var(--white);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
         header p {
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--light-gold);
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 50px;
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            background: var(--glass);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         h2 {
             color: var(--navy);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
+            border-bottom: 3px solid var(--gold);
+            display: inline-block;
+            margin-bottom: 25px;
         }
 
         .intro-text {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
-        .future-tabs {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
 
         .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            background: #f9f9f9;
-            transition: transform 0.3s ease;
+            background: #fff;
+            padding: 25px;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--navy);
+        /* RTL Adjustments for Arabic */
+        [dir="rtl"] .card {
+            border-left: none;
+            border-right: 5px solid var(--gold);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px;
             color: var(--white);
             font-size: 0.9rem;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
+    <nav class="lang-nav">
+        <button onclick="setLang('en')">English</button>
+        <button onclick="setLang('ar')">العربية</button>
+        <button onclick="setLang('fr')">Français</button>
+        <button onclick="setLang('nl')">Nederlands</button>
+    </nav>
+
     <header>
-        <h1>The Nature of Risk</h1>
-        <p>"To sail is necessary; to live is not." — Ancient Proverb</p>
+        <h1 id="title">The Nature of Risk</h1>
+        <p id="quote">"To sail is necessary; to live is not."</p>
     </header>
 
     <div class="container">
-        <section id="manifesto">
-            <h2>Understanding the Unknown</h2>
-            <p class="intro-text">
-                Risk is not merely a mathematical probability or a financial hazard. It is the fundamental fabric of human progress. From the first nomad crossing a mountain range to the modern engineer building AI, we exist in a constant dance with uncertainty.
-            </p>
-            <p>
-                This journal explores how we quantify the world through <strong>Statistics</strong>, how we find meaning through <strong>Religion</strong>, and what <strong>History</strong> teaches us about the civilizations that survived—and those that didn't.
-            </p>
-        </section>
+        <h2 id="h-intro">Understanding the Unknown</h2>
+        <p class="intro-text" id="p-intro">
+            Risk is not merely a mathematical probability or a financial hazard. It is the fundamental fabric of human progress. From the first nomad crossing a mountain range to the modern engineer building AI, we exist in a constant dance with uncertainty.
+        </p>
+        
+        <p id="p-main">
+            This journal explores how we quantify the world through Statistics, how we find meaning through Religion, and what History teaches us about survival.
+        </p>
 
-        <section id="pillars">
-            <h2>The Three Pillars</h2>
-            <div class="future-tabs">
-                <div class="card">
-                    <h3>The Lens of Math</h3>
-                    <p>Exploring probability distributions, tail risks, and the law of large numbers.</p>
-                </div>
-                <div class="card">
-                    <h3>The Lens of Faith</h3>
-                    <p>How ancient traditions view fate, providence, and human agency.</p>
-                </div>
-                <div class="card">
-                    <h3>The Lens of Time</h3>
-                    <p>Stories of systemic failures and triumphs throughout human history.</p>
-                </div>
+        <h2 id="h-pillars" style="margin-top:40px;">The Three Pillars</h2>
+        <div class="grid">
+            <div class="card">
+                <h3 id="c1-t">The Lens of Math</h3>
+                <p id="c1-p">Exploring probability distributions, tail risks, and the law of large numbers.</p>
             </div>
-        </section>
+            <div class="card">
+                <h3 id="c2-t">The Lens of Faith</h3>
+                <p id="c2-p">How ancient traditions view fate, providence, and human agency.</p>
+            </div>
+            <div class="card">
+                <h3 id="c3-t">The Lens of Time</h3>
+                <p id="c3-p">Stories of systemic failures and triumphs throughout human history.</p>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Exploring Risk Journal. Powered by Azure Static Web Apps.</p>
+        <p>&copy; 2026 — Exploring Risk Journal</p>
     </footer>
 
+    <script>
+        const data = {
+            en: {
+                title: "The Nature of Risk",
+                quote: '"To sail is necessary; to live is not." — Ancient Proverb',
+                hIntro: "Understanding the Unknown",
+                pIntro: "Risk is not merely a mathematical probability or a financial hazard. It is the fundamental fabric of human progress. From the first nomad crossing a mountain range to the modern engineer building AI, we exist in a constant dance with uncertainty.",
+                pMain: "This journal explores how we quantify the world through Statistics, how we find meaning through Religion, and what History teaches us about the civilizations that survived—and those that didn't.",
+                hPillars: "The Three Pillars",
+                c1T: "The Lens of Math", c1P: "Exploring probability distributions, tail risks, and the law of large numbers.",
+                c2T: "The Lens of Faith", c2P: "How ancient traditions view fate, providence, and human agency.",
+                c3T: "The Lens of Time", c3P: "Stories of systemic failures and triumphs throughout human history.",
+                dir: "ltr"
+            },
+            ar: {
+                title: "طبيعة المخاطر",
+                quote: '"الإبحار ضروري، أما الحياة فليست كذلك" — مَثل قديم',
+                hIntro: "فهم المجهول",
+                pIntro: "المخاطرة ليست مجرد احتمالات رياضية أو مخاطر مالية؛ بل هي النسيج الأساسي للتقدم البشري. من أول رحالة عبر الجبال إلى المهندس الحديث الذي يطور الذكاء الاصطناعي، نحن نعيش في رقصة مستمرة مع عدم اليقين.",
+                pMain: "تستكشف هذه المذكرات كيف نقيس العالم من خلال الإحصاء، وكيف نجد المعنى من خلال الأديان، وماذا يعلمنا التاريخ عن الحضارات التي نجت والتي تلاشت.",
+                hPillars: "الركائز الثلاث",
+                c1T: "عدسة الرياضيات", c1P: "استكشاف توزيعات الاحتمالات، ومخاطر الذيل، وقانون الأعداد الكبيرة.",
+                c2T: "عدسة الإيمان", c2P: "كيف تنظر التقاليد القديمة إلى القدر والقضاء والقدرة البشرية.",
+                c3T: "عدسة الزمن", c3P: "قصص الإخفاقات والنجاحات المنهجية عبر التاريخ البشري.",
+                dir: "rtl"
+            },
+            fr: {
+                title: "La Nature du Risque",
+                quote: '"Naviguer est nécessaire, vivre ne l\'est pas." — Proverbe Antique',
+                hIntro: "Comprendre l'Inconnu",
+                pIntro: "Le risque n'est pas seulement une probabilité mathématique. C'est le tissu fondamental du progrès humain. Du premier nomade à l'ingénieur moderne, nous existons dans une danse constante avec l'incertitude.",
+                pMain: "Ce journal explore comment nous quantifions le monde par les statistiques, comment nous trouvons un sens par la religion et ce que l'histoire nous enseigne sur la survie.",
+                hPillars: "Les Trois Piliers",
+                c1T: "L'optique Mathématique", c1P: "Explorer les distributions de probabilités et la loi des grands nombres.",
+                c2T: "L'optique de la Foi", c2P: "Comment les traditions anciennes perçoivent le destin et l'action humaine.",
+                c3T: "L'optique du Temps", c3P: "Récits des échecs et triomphes systémiques à travers l'histoire.",
+                dir: "ltr"
+            },
+            nl: {
+                title: "De Aard van Risico",
+                quote: '"Varen is noodzakelijk, leven niet." — Oud Gezegde',
+                hIntro: "Het Onbekende Begrijpen",
+                pIntro: "Risico is niet louter een wiskundige kans. Het is de bouwsteen van menselijke vooruitgang. Van de eerste nomade tot de moderne ingenieur: we dansen constant met onzekerheid.",
+                pMain: "Dit dagboek onderzoekt hoe we de wereld kwantificeren via statistiek, zin geven via religie en wat de geschiedenis ons leert over overleving.",
+                hPillars: "De Drie Pijlers",
+                c1T: "De Wiskundige Lens", c1P: "Onderzoek naar kansverdelingen en de wet van de grote getallen.",
+                c2T: "De Lens van Geloof", c2P: "Hoe oude tradities kijken naar het lot en menselijk handelen.",
+                c3T: "De Lens van de Tijd", c3P: "Verhalen over systemische mislukkingen en triomfen door de geschiedenis heen.",
+                dir: "ltr"
+            }
+        };
+
+        function setLang(lang) {
+            const content = data[lang];
+            document.getElementById('html-tag').dir = content.dir;
+            document.getElementById('title').textContent = content.title;
+            document.getElementById('quote').textContent = content.quote;
+            document.getElementById('h-intro').textContent = content.hIntro;
+            document.getElementById('p-intro').textContent = content.pIntro;
+            document.getElementById('p-main').textContent = content.pMain;
+            document.getElementById('h-pillars').textContent = content.hPillars;
+            document.getElementById('c1-t').textContent = content.c1T;
+            document.getElementById('c1-p').textContent = content.c1P;
+            document.getElementById('c2-t').textContent = content.c2T;
+            document.getElementById('c2-p').textContent = content.c2P;
+            document.getElementById('c3-t').textContent = content.c3T;
+            document.getElementById('c3-p').textContent = content.c3P;
+        }
+    </script>
 </body>
 </html>
