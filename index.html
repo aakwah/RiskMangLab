@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag">
+<html lang="en" id="html-tag" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +10,17 @@
             --gold: #d4af37;
             --light-gold: #f1e5ac;
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.95);
+            --glass: rgba(255, 255, 255, 0.96);
         }
 
         body {
             margin: 0;
-            font-family: 'Optima', 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             color: #222;
             background: linear-gradient(135deg, var(--navy) 0%, #003366 50%, var(--gold) 100%);
             background-attachment: fixed;
             min-height: 100vh;
-            transition: direction 0.3s ease;
         }
 
         /* Language Switcher */
@@ -35,11 +34,12 @@
             background: transparent;
             border: 1px solid var(--light-gold);
             color: var(--white);
-            padding: 5px 15px;
+            padding: 6px 18px;
             margin: 0 5px;
             cursor: pointer;
             border-radius: 20px;
-            transition: 0.3s;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
         .lang-nav button:hover {
@@ -49,29 +49,31 @@
 
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             color: var(--white);
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 10px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
         header p {
             font-style: italic;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--light-gold);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto 60px auto;
+            max-width: 850px;
+            margin: 0 auto 80px auto;
             background: var(--glass);
             padding: 50px;
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         h2 {
@@ -83,28 +85,29 @@
 
         .intro-text {
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
         .card {
             background: #fff;
-            padding: 25px;
-            border-left: 5px solid var(--gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-left: 6px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-radius: 4px;
         }
 
-        /* RTL Adjustments for Arabic */
+        /* RTL Adjustments */
         [dir="rtl"] .card {
             border-left: none;
-            border-right: 5px solid var(--gold);
+            border-right: 6px solid var(--gold);
         }
 
         footer {
@@ -112,7 +115,7 @@
             padding: 40px;
             color: var(--white);
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -137,28 +140,24 @@
         </p>
         
         <p id="p-main">
-            This journal explores how we quantify the world through Statistics, how we find meaning through Religion, and what History teaches us about survival.
+            This journal explores how we quantify the world through statistical models and what history teaches us about the civilizations that survived—and those that didn't.
         </p>
 
-        <h2 id="h-pillars" style="margin-top:40px;">The Three Pillars</h2>
+        <h2 id="h-pillars" style="margin-top:40px;">The Core Pillars</h2>
         <div class="grid">
             <div class="card">
-                <h3 id="c1-t">The Lens of Math</h3>
-                <p id="c1-p">Exploring probability distributions, tail risks, and the law of large numbers.</p>
+                <h3 id="c1-t">The Lens of Statistics</h3>
+                <p id="c1-p">Exploring probability distributions, tail risks, and the data-driven models that attempt to map the future.</p>
             </div>
             <div class="card">
-                <h3 id="c2-t">The Lens of Faith</h3>
-                <p id="c2-p">How ancient traditions view fate, providence, and human agency.</p>
-            </div>
-            <div class="card">
-                <h3 id="c3-t">The Lens of Time</h3>
-                <p id="c3-p">Stories of systemic failures and triumphs throughout human history.</p>
+                <h3 id="c2-t">The Lens of History</h3>
+                <p id="c2-p">Analyzing stories of systemic failures, survival strategies, and the evolution of human foresight.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 — Exploring Risk Journal</p>
+        <p id="footer-text">&copy; 2026 — Exploring Risk Journal</p>
     </footer>
 
     <script>
@@ -168,11 +167,10 @@
                 quote: '"To sail is necessary; to live is not." — Ancient Proverb',
                 hIntro: "Understanding the Unknown",
                 pIntro: "Risk is not merely a mathematical probability or a financial hazard. It is the fundamental fabric of human progress. From the first nomad crossing a mountain range to the modern engineer building AI, we exist in a constant dance with uncertainty.",
-                pMain: "This journal explores how we quantify the world through Statistics, how we find meaning through Religion, and what History teaches us about the civilizations that survived—and those that didn't.",
-                hPillars: "The Three Pillars",
-                c1T: "The Lens of Math", c1P: "Exploring probability distributions, tail risks, and the law of large numbers.",
-                c2T: "The Lens of Faith", c2P: "How ancient traditions view fate, providence, and human agency.",
-                c3T: "The Lens of Time", c3P: "Stories of systemic failures and triumphs throughout human history.",
+                pMain: "This journal explores how we quantify the world through statistical models and what history teaches us about the civilizations that survived—and those that didn't.",
+                hPillars: "The Core Pillars",
+                c1T: "The Lens of Statistics", c1P: "Exploring probability distributions, tail risks, and the data-driven models that attempt to map the future.",
+                c2T: "The Lens of History", c2P: "Analyzing stories of systemic failures, survival strategies, and the evolution of human foresight.",
                 dir: "ltr"
             },
             ar: {
@@ -180,35 +178,32 @@
                 quote: '"الإبحار ضروري، أما الحياة فليست كذلك" — مَثل قديم',
                 hIntro: "فهم المجهول",
                 pIntro: "المخاطرة ليست مجرد احتمالات رياضية أو مخاطر مالية؛ بل هي النسيج الأساسي للتقدم البشري. من أول رحالة عبر الجبال إلى المهندس الحديث الذي يطور الذكاء الاصطناعي، نحن نعيش في رقصة مستمرة مع عدم اليقين.",
-                pMain: "تستكشف هذه المذكرات كيف نقيس العالم من خلال الإحصاء، وكيف نجد المعنى من خلال الأديان، وماذا يعلمنا التاريخ عن الحضارات التي نجت والتي تلاشت.",
-                hPillars: "الركائز الثلاث",
-                c1T: "عدسة الرياضيات", c1P: "استكشاف توزيعات الاحتمالات، ومخاطر الذيل، وقانون الأعداد الكبيرة.",
-                c2T: "عدسة الإيمان", c2P: "كيف تنظر التقاليد القديمة إلى القدر والقضاء والقدرة البشرية.",
-                c3T: "عدسة الزمن", c3P: "قصص الإخفاقات والنجاحات المنهجية عبر التاريخ البشري.",
+                pMain: "تستكشف هذه المذكرات كيف نقيس العالم من خلال النماذج الإحصائية وماذا يعلمنا التاريخ عن الحضارات التي نجت والتي تلاشت.",
+                hPillars: "الركائز الأساسية",
+                c1T: "عدسة الإحصاء", c1P: "استكشاف توزيعات الاحتمالات، ومخاطر الذيل، والنماذج القائمة على البيانات التي تحاول رسم خارطة المستقبل.",
+                c2T: "عدسة التاريخ", c2P: "تحليل قصص الإخفاقات المنهجية، واستراتيجيات البقاء، وتطور البصيرة البشرية عبر الزمن.",
                 dir: "rtl"
             },
             fr: {
                 title: "La Nature du Risque",
                 quote: '"Naviguer est nécessaire, vivre ne l\'est pas." — Proverbe Antique',
                 hIntro: "Comprendre l'Inconnu",
-                pIntro: "Le risque n'est pas seulement une probabilité mathématique. C'est le tissu fondamental du progrès humain. Du premier nomade à l'ingénieur moderne, nous existons dans une danse constante avec l'incertitude.",
-                pMain: "Ce journal explore comment nous quantifions le monde par les statistiques, comment nous trouvons un sens par la religion et ce que l'histoire nous enseigne sur la survie.",
-                hPillars: "Les Trois Piliers",
-                c1T: "L'optique Mathématique", c1P: "Explorer les distributions de probabilités et la loi des grands nombres.",
-                c2T: "L'optique de la Foi", c2P: "Comment les traditions anciennes perçoivent le destin et l'action humaine.",
-                c3T: "L'optique du Temps", c3P: "Récits des échecs et triomphes systémiques à travers l'histoire.",
+                pIntro: "Le risque n'est pas seulement une probabilité mathématique ou un danger financier. C'est le tissu fondamental du progrès humain. Du premier nomade à l'ingénieur moderne, nous dansons avec l'incertitude.",
+                pMain: "Ce journal explore comment nous quantifions le monde par les modèles statistiques et ce que l'histoire nous enseigne sur la survie des civilisations.",
+                hPillars: "Les Piliers Centraux",
+                c1T: "L'optique Statistique", c1P: "Explorer les distributions de probabilités, les risques extrêmes et les modèles de données qui tentent de cartographier l'avenir.",
+                c2T: "L'optique de l'Histoire", c2P: "Analyser les récits de défaillances systémiques et l'évolution de la prévoyance humaine à travers les âges.",
                 dir: "ltr"
             },
             nl: {
                 title: "De Aard van Risico",
                 quote: '"Varen is noodzakelijk, leven niet." — Oud Gezegde',
                 hIntro: "Het Onbekende Begrijpen",
-                pIntro: "Risico is niet louter een wiskundige kans. Het is de bouwsteen van menselijke vooruitgang. Van de eerste nomade tot de moderne ingenieur: we dansen constant met onzekerheid.",
-                pMain: "Dit dagboek onderzoekt hoe we de wereld kwantificeren via statistiek, zin geven via religie en wat de geschiedenis ons leert over overleving.",
-                hPillars: "De Drie Pijlers",
-                c1T: "De Wiskundige Lens", c1P: "Onderzoek naar kansverdelingen en de wet van de grote getallen.",
-                c2T: "De Lens van Geloof", c2P: "Hoe oude tradities kijken naar het lot en menselijk handelen.",
-                c3T: "De Lens van de Tijd", c3P: "Verhalen over systemische mislukkingen en triomfen door de geschiedenis heen.",
+                pIntro: "Risico is niet louter een wiskundige kans of een financieel gevaar. Het is de bouwsteen van menselijke vooruitgang. Van de eerste nomade tot de moderne ingenieur: we dansen met onzekerheid.",
+                pMain: "Dit dagboek onderzoekt hoe we de wereld kwantificeren via statistische modellen en wat de geschiedenis ons leert over het overleven van beschavingen.",
+                hPillars: "De Kernpijlers",
+                c1T: "De Statistische Lens", c1P: "Onderzoek naar kansverdelingen, staartrisico's en datagestuurde modellen die de toekomst proberen te voorspellen.",
+                c2T: "De Historische Lens", c2P: "Analyseren van systemische mislukkingen, overlevingsstrategieën en de evolutie van menselijke vooruitziendheid.",
                 dir: "ltr"
             }
         };
@@ -226,8 +221,6 @@
             document.getElementById('c1-p').textContent = content.c1P;
             document.getElementById('c2-t').textContent = content.c2T;
             document.getElementById('c2-p').textContent = content.c2P;
-            document.getElementById('c3-t').textContent = content.c3T;
-            document.getElementById('c3-p').textContent = content.c3P;
         }
     </script>
 </body>
